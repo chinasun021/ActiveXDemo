@@ -1,0 +1,9 @@
+; ActiveXDemo.def : Declares the module parameters.
+
+LIBRARY      "ActiveXDemo.OCX"
+
+EXPORTS
+	DllCanUnloadNow     PRIVATE
+	DllGetClassObject   PRIVATE
+	DllRegisterServer   PRIVATE
+	DllUnregisterServer PRIVATE

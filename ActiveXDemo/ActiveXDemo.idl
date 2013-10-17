@@ -1,0 +1,52 @@
+// ActiveXDemo.idl : type library source for ActiveX Control project.
+
+// This file will be processed by the MIDL compiler tool to
+// produce the type library (ActiveXDemo.tlb) that will become a resource in
+// ActiveXDemo.ocx.
+
+#include <olectl.h>
+#include <idispids.h>
+
+[ uuid(41F29E03-E746-4F49-8212-8F5ED921AC70), version(1.0),
+  helpfile("ActiveXDemo.hlp"),
+  helpstring("ActiveXDemo ActiveX Control module"),
+  control ]
+library ActiveXDemoLib
+{
+	importlib(STDOLE_TLB);
+
+	//  Primary dispatch interface for CActiveXDemoCtrl
+
+	[ uuid(768223FA-5D02-489A-B43E-851F2299C4BD),
+	  helpstring("Dispatch interface for ActiveXDemo Control")]
+	dispinterface _DActiveXDemo
+	{
+		properties:
+		methods:
+			[id(1), helpstring("method Connect")] LONG Connect(VARIANT ip, LONG port);
+			[id(2), helpstring("method Disconnect")] LONG Disconnect(void);
+	};
+
+	//  Event dispatch interface for CActiveXDemoCtrl
+
+	[ uuid(5D558BC6-9E0C-4A74-941A-B530E935B664),
+	  helpstring("Event interface for ActiveXDemo Control") ]
+	dispinterface _DActiveXDemoEvents
+	{
+		properties:
+			//  Event interface has no properties
+
+		methods:
+	};
+
+	//  Class information for CActiveXDemoCtrl
+
+	[ uuid(A6C57F0C-C1EF-4E94-AC0C-CDC9D57AE42C),
+	  helpstring("ActiveXDemo Control"), control ]
+	coclass ActiveXDemo
+	{
+		[default] dispinterface _DActiveXDemo;
+		[default, source] dispinterface _DActiveXDemoEvents;
+	};
+
+};
